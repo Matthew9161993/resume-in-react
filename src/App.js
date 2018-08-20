@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  render() {
+  render(props) {
     return (
       <div className="App">
         <header className="App-header">
@@ -14,7 +14,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <p className ="Hello-world">
-          Hello there friends!
+          Hello there friends! It is {new Date().toLocaleTimeString()}.
         </p>
       </div>
     );
