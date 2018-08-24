@@ -20,6 +20,49 @@ function IntroGarbage(props) {
   ); 
 }
 
+function ContactInfo(props) {
+  return (
+    <div className="Contact-info">
+    {props.info}
+    <br/>
+    {props.phone}
+    <br/>
+    {props.email}
+    </div>
+  );
+}
+
+class Deadeye extends Component {
+  render() {
+    return (
+      <div className="Deadeye">
+        <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+          <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <a className="navbar-brand" href="#">Navbar</a>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item active">
+                <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">About Me</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">My Projects</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link disabled" href="#">Resume</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    );
+  }
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -45,22 +88,18 @@ class App extends Component {
 
   render() {
     return (
+      <div>
+      <Deadeye/>
       <div className="App">
         <InitialHeader intro = "Welcome to React" />
         <IntroGarbage date = {this.state.date} />
         <h2 className="My-name">{"Matthew O'Connor"} </h2>
         <img src={mugshot} className = "My-Picture" alt="You Can't See Me :/[" />
-        <p className = "Email">
-          mattmoconnor@gmail.com
-        </p>
-        <p className = "Phone-number">
-          608-354-8099
-        </p>
-        <section class="information">
-            This is some stuff about me!
-        </section>
-        <footer>
-        </footer>
+        <ContactInfo info = "This is some stuff about me!"
+                     phone = "608-354-8099"
+                     email = "mattmoconnor@gmail.com"
+        />
+      </div>
       </div>
     );
   }
