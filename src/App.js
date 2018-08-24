@@ -3,6 +3,23 @@ import logo from './logo.svg';
 import mugshot from './ImSoHandsome.jpg'
 import './App.css';
 
+function InitialHeader(props) {
+  return (
+    <div className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+      <h1 className="App-title">{props.intro}</h1>
+    </div>
+  );
+}
+
+function IntroGarbage(props) {
+  return (
+    <div className="Intro-garbage">
+       Hello there friends! It is {props.date.toLocaleTimeString()}.
+    </div>
+  ); 
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -29,22 +46,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p className ="Hello-world">
-          Hello there friends! It is {this.state.date.toLocaleTimeString()}.
-        </p>
+        <InitialHeader intro = "Welcome to React" />
+        <IntroGarbage date = {this.state.date} />
         <h2 className="My-name">{"Matthew O'Connor"} </h2>
-        <img src={mugshot} className = "My-Picture" alt="You Can't See Me :[" />
-        <p>
+        <img src={mugshot} className = "My-Picture" alt="You Can't See Me :/[" />
+        <p className = "Email">
           mattmoconnor@gmail.com
         </p>
-        <p>
+        <p className = "Phone-number">
           608-354-8099
         </p>
         <section class="information">
