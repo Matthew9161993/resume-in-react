@@ -3,6 +3,23 @@ import logo from './logo.svg';
 import mugshot from './ImSoHandsome.jpg'
 import './App.css';
 
+const buttonStyles = { color: '#fff' };
+
+function Button(props) {
+  return <button style={Object.assign({}, buttonStyles, props.style)}>
+    {props.children}
+  </button>;
+}
+
+const headerStyles = { backgroundColor: '#222',
+                       fontSize: '24px',
+                       width: '33%',
+                       border: '2px solid #222'};
+
+function HeaderButton(props) {
+  return <Button style={headerStyles}>{props.text}</Button>;
+}
+
 function InitialHeader(props) {
   return (
     <div className="App-header">
@@ -31,39 +48,8 @@ function ContactInfo(props) {
     </div>
   );
 }
+class Banner extends Component {
 
-class Deadeye extends Component {
-  render() {
-    return (
-      <div className="Deadeye">
-        <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
-          <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <a className="navbar-brand" href="#">Navbar</a>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item active">
-                <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">About Me</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">My Projects</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link disabled" href="#">Resume</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    );
-  }
-}
-
-class App extends Component {
   constructor(props) {
     super(props);
     this.state = {date: new Date()};
@@ -88,11 +74,31 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-      <Deadeye/>
-      <div className="App">
+      <div className="React-banner">
         <InitialHeader intro = "Welcome to React" />
         <IntroGarbage date = {this.state.date} />
+      </div>
+    );
+  }
+}
+
+class Buttonizer extends Component {
+  render() {
+    return ( 
+      <div className="All-the-buttons">
+        <HeaderButton text = "About Me"/>
+        <HeaderButton text = "Projects"/>
+        <HeaderButton text = "Resume"/>
+      </div>
+      );
+  }
+}
+
+class PageOne extends Component {
+
+  render() {
+    return (
+      <div className="First-page">
         <h2 className="My-name">{"Matthew O'Connor"} </h2>
         <img src={mugshot} className = "My-Picture" alt="You Can't See Me :/[" />
         <ContactInfo info = "This is some stuff about me!"
@@ -100,6 +106,18 @@ class App extends Component {
                      email = "mattmoconnor@gmail.com"
         />
       </div>
+    );
+  }
+}
+
+class App extends Component {
+
+  render() {
+    return (
+      <div>
+        <Banner />
+        <Buttonizer />
+        <PageOne />
       </div>
     );
   }

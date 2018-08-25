@@ -1,5 +1,6 @@
-.App {
-  text-align: center;
+.All-the-buttons {
+  display: flex;
+  justify-content: center;
 }
 
 .App-logo {
@@ -22,12 +23,16 @@
   font-size: large;
 }
 
-.Hello-world{
+.First-page {
+  text-align: center;
+}
+
+.Hello-world {
   font-size: large;
 }
 
 
-.information{
+.information {
     font-size: 17px;
     padding: 15px;
 }
@@ -37,6 +42,10 @@
     font-variant: small-caps;
     font-weight: bold;
     font-size: 50px;
+}
+
+.React-banner {
+  text-align: center;
 }
 
 .sign{
