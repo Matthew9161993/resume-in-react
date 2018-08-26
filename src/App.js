@@ -14,7 +14,8 @@ class CustomButton extends Component {
   render() {
     return(
       <button className="navbutton"
-              onClick={() => alert('I am ' + this.props.text)}>
+              onClick={() => this.props.onClick()}
+      >
         {this.props.text}
       </button>
       );
@@ -96,7 +97,7 @@ class Buttonizer extends Component {
     return (
       <CustomButton
         text={this.state.text[i]}
-        onClick={() => this.handleClick(i)}
+        onClick={() => this.props.onClick(this.state.text[i])}
       />
     );
   }
@@ -152,12 +153,32 @@ class Resume extends Component {
 
 class App extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      currentPage: "About Me",
+    };
+  }
+
+  handleClick(i) {
+    this.setState({currentPage: i});
+  }
+
   render() {
+
     return (
       <div>
         <Banner />
-        <Buttonizer />
-        <PageOne />
+        <Buttonizer onClick={(i) => this.handleClick(i)}/>
+        {this.state.currentPage === "About Me" &&
+          <PageOne />
+        }
+        {this.state.currentPage === "Projects" &&
+          <Projects />
+        }
+        {this.state.currentPage === "Resume" &&
+          <Resume />
+        }
       </div>
     );
   }
