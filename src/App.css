@@ -1,22 +1,23 @@
 .All-the-buttons {
+  background-color: #222;
   display: flex;
   justify-content: center;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 2s linear;
-  height: 160px;
+  height: 45px;
 }
 
 .App-header {
   background-color: #222;
-  height: 250px;
-  padding: 20px;
+  height: 100px;
+  padding: 10px;
   color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.0em;
 }
 
 .App-intro {
@@ -38,14 +39,18 @@
 }
 
 .My-name{
+    background-color: #222;
     padding: 20px;
     font-variant: small-caps;
     font-weight: bold;
     font-size: 50px;
+    margin: 0px;
+    text-align: center;
+    color: #2ed141;
 }
 
 .React-banner {
-  text-align: center;
+  text-align: right;
 }
 
 .sign{

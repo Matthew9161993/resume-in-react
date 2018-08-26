@@ -26,7 +26,7 @@ class CustomButton extends Component {
 function InitialHeader(props) {
   return (
     <div className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
+      <img src={logo} className="App-logo" alt="logo" align="middle"/>
       <h1 className="App-title">{props.intro}</h1>
     </div>
   );
@@ -78,8 +78,8 @@ class Banner extends Component {
   render() {
     return (
       <div className="React-banner">
-        <InitialHeader intro = "Welcome to React" />
         <IntroGarbage date = {this.state.date} />
+        <InitialHeader intro = "Powered by Create-React-App" />
       </div>
     );
   }
@@ -113,12 +113,19 @@ class Buttonizer extends Component {
   }
 }
 
+class Name extends Component {
+  render() {
+    return(
+        <h2 className="My-name">{"Matthew O'Connor"} </h2>
+      );
+  }
+}
+
 class PageOne extends Component {
 
   render() {
     return (
       <div className="First-page">
-        <h2 className="My-name">{"Matthew O'Connor"} </h2>
         <img src={mugshot} className = "My-Picture" alt="You Can't See Me :/[" />
         <ContactInfo info = "This is some stuff about me!"
                      phone = "608-354-8099"
@@ -168,7 +175,7 @@ class App extends Component {
 
     return (
       <div>
-        <Banner />
+        <Name />
         <Buttonizer onClick={(i) => this.handleClick(i)}/>
         {this.state.currentPage === "About Me" &&
           <PageOne />
@@ -179,6 +186,7 @@ class App extends Component {
         {this.state.currentPage === "Resume" &&
           <Resume />
         }
+        <Banner />
       </div>
     );
   }
