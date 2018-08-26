@@ -49,6 +49,39 @@
     color: #2ed141;
 }
 
+.navbutton {
+    background-color: #2ed141;
+    border: none;
+    color: #222;
+    display: inline-block;
+    font-size: 24px;
+    font-variant: small-caps;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    transition: 1.0s;
+    width: 33.3%;
+}
+
+.navbutton-hover {
+    background-color: #444;
+    border: none;
+    color: #2ed141;
+    display: inline-block;
+    font-size: 24px;
+    font-variant: small-caps;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    width: 33.3%;
+}
+
 .React-banner {
   text-align: right;
 }

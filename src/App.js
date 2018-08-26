@@ -3,18 +3,36 @@ import logo from './logo.svg';
 import mugshot from './ImSoHandsome.jpg'
 import './App.css';
 
-const buttonStyles = { backgroundColor: '#222',
+const buttonStyles =  { backgroundColor: '#222',
                        fontSize: '24px',
                        width: '33%',
                        border: '2px solid #222'};
 
 
 class CustomButton extends Component {
+  constructor(){
+    super();
+    this.hoverOn = this.hoverOn.bind(this);
+    this.hoverOff = this.hoverOff.bind(this);
+    this.state = {
+      hover: false,
+    };
+  }
+
+  hoverOn(){
+    this.setState({hover: true});
+  }
+
+  hoverOff(){
+    this.setState({hover: false});
+  }
 
   render() {
     return(
-      <button className="navbutton"
+      <button className={ this.state.hover ? "navbutton" : "navbutton-hover" }
               onClick={() => this.props.onClick()}
+              onMouseEnter={this.hoverOn}
+              onMouseLeave={this.hoverOff}
       >
         {this.props.text}
       </button>
