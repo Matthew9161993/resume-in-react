@@ -6,26 +6,40 @@
 
 .App-logo {
   animation: App-logo-spin infinite 2s linear;
+  display:block;
   height: 45px;
+  margin: auto;
 }
 
 .App-header {
-  background-color: #222;
-  height: 100px;
-  padding: 10px;
+  background-color: #333;
   color: white;
+  height: 100px;
+  padding: 5px;
+  text-align: center;
 }
 
 .App-title {
   font-size: 1.0em;
 }
 
-.App-intro {
+.introduction {
   font-size: large;
 }
 
+.Contact-info {
+  padding: 75px;
+}
+
 .First-page {
+  background-color: #222;
+  color: #2ed141;
+  dispaly: block;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+  font-size: large;
+  padding: 75px;
 }
 
 .Hello-world {
@@ -40,7 +54,7 @@
 
 .My-name{
     background-color: #222;
-    padding: 20px;
+    padding: 70px;
     font-variant: small-caps;
     font-weight: bold;
     font-size: 50px;
@@ -79,6 +93,24 @@
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
+    transition: 1.0s;
+    width: 33.3%;
+}
+
+.navbutton-selected {
+    background-color: #2ed141;
+    border: none;
+    color: #222;
+    display: inline-block;
+    font-size: 24px;
+    font-variant: small-caps;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    transition: 1.0s;
     width: 33.3%;
 }
 

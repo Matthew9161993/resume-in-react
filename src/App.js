@@ -45,17 +45,9 @@ function InitialHeader(props) {
   return (
     <div className="App-header">
       <img src={logo} className="App-logo" alt="logo" align="middle"/>
-      <h1 className="App-title">{props.intro}</h1>
+      <h1 className="introduction">{props.intro}</h1>
     </div>
   );
-}
-
-function IntroGarbage(props) {
-  return (
-    <div className="Intro-garbage">
-       Hello there friends! It is {props.date.toLocaleTimeString()}.
-    </div>
-  ); 
 }
 
 function ContactInfo(props) {
@@ -63,40 +55,23 @@ function ContactInfo(props) {
     <div className="Contact-info">
     {props.info}
     <br/>
+    <br/>
     {props.phone}
+    <br/>
     <br/>
     {props.email}
     </div>
   );
 }
-class Banner extends Component {
-
+class Banner extends Component{
+  
   constructor(props) {
-    super(props);
-    this.state = {date: new Date()};
-  }
-
-  componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
-
-  tick() {
-    this.setState({
-      date: new Date()
-    });
+    super(props)
   }
 
   render() {
     return (
       <div className="React-banner">
-        <IntroGarbage date = {this.state.date} />
         <InitialHeader intro = "Powered by Create-React-App" />
       </div>
     );
@@ -144,8 +119,13 @@ class PageOne extends Component {
   render() {
     return (
       <div className="First-page">
-        <img src={mugshot} className = "My-Picture" alt="You Can't See Me :/[" />
-        <ContactInfo info = "This is some stuff about me!"
+        <img src={mugshot} className = "My-Picture" alt="You Can't See Me :/[" 
+              width="540px" height="auto" padding="50px" />
+        <ContactInfo info = "Hello everyone! I'm Matt, and I'm a developer in the
+        Madison area. I'm currently looking for development work across the U.S. My
+        other passions include music, teaching, physical fitness, wellness, and board games!
+        I've left my contact information below, please contact me if you have any questions
+        or project ideas. Cheers!"
                      phone = "608-354-8099"
                      email = "mattmoconnor@gmail.com"
         />
