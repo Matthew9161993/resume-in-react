@@ -3,11 +3,28 @@ import logo from './logo.svg';
 import mugshot from './ImSoHandsome.jpg'
 import './App.css';
 
-const buttonStyles =  { backgroundColor: '#222',
-                       fontSize: '24px',
-                       width: '33%',
-                       border: '2px solid #222'};
+function InitialHeader(props) {
+  return (
+    <div className="App-footer">
+      <img src={logo} className="App-logo" alt="logo" align="middle"/>
+      <h1 className="introduction">{props.intro}</h1>
+    </div>
+  );
+}
 
+function ContactInfo(props) {
+  return (
+    <div className="Contact-info">
+    {props.info}
+    <br/>
+    <br/>
+    {props.phone}
+    <br/>
+    <br/>
+    {props.email}
+    </div>
+  );
+}
 
 class CustomButton extends Component {
   constructor(){
@@ -40,31 +57,8 @@ class CustomButton extends Component {
   }
 }
 
-
-function InitialHeader(props) {
-  return (
-    <div className="App-header">
-      <img src={logo} className="App-logo" alt="logo" align="middle"/>
-      <h1 className="introduction">{props.intro}</h1>
-    </div>
-  );
-}
-
-function ContactInfo(props) {
-  return (
-    <div className="Contact-info">
-    {props.info}
-    <br/>
-    <br/>
-    {props.phone}
-    <br/>
-    <br/>
-    {props.email}
-    </div>
-  );
-}
 class Banner extends Component{
-  
+
   constructor(props) {
     super(props)
   }
@@ -149,8 +143,47 @@ class Resume extends Component {
 
   render() {
     return(
-      <div className="Resume-page">
-        This is my awesome resume!
+      <div className = "Resume-page">
+        <section className="Resume-header">
+          &#123; OBJECTIVE &#125;
+        </section>
+        <br/>
+        <section className="Resume-text">
+        Seeking responsible position to apply computer skills 
+        to solve problems with user friendly software and technology 
+        to improve productivity and increase communication.
+        </section>
+        <br/>
+        <section className="Resume-header">
+        &#123; EDUCATION &#125;
+        </section>
+        <br/>
+        <section className="Resume-text">
+          <section className="Resume-info-line">
+            University of Wisconsin-Madison 2018
+          </section>
+          <br/>
+          Computer Science B.S.
+        </section>
+        <br/>
+        <section className="Resume-header">
+        &#123; WORK EXPERIENCE &#125;
+        </section>
+        <br/>
+        <section className="Resume-text">
+          <section className="Resume-info-line">
+          MORGRIDGE INSTITUTE FOR RESEARCH, MADISON WI - SINCE 2016
+          </section>
+          <br/>
+          The Morgridge Institute for Reasearch, partnering with UW-Madison, 
+          seeks to improve human health 
+          through innovative technologies and interdisciplinary biomedical 
+          discoveries. As an <u>Audio/Video Technician</u>, operated and 
+          maintained Unix/Windows computers, created new network 
+          software for remote access to digital signage, trained new 
+          technicians and published training manuals, and recognized 
+          for efficient communication with team members.
+        </section>
       </div>
       );
   }

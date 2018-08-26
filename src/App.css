@@ -11,7 +11,7 @@
   margin: auto;
 }
 
-.App-header {
+.App-footer {
   background-color: #333;
   color: white;
   height: 100px;
@@ -34,7 +34,7 @@
 .First-page {
   background-color: #222;
   color: #2ed141;
-  dispaly: block;
+  display: block;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -116,6 +116,35 @@
 
 .React-banner {
   text-align: right;
+}
+
+.Resume-header {
+  color: #aef9f2;
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.Resume-info-line {
+  background-color: #444;
+  color: #d456ff;
+  text-align: center;
+  font-size: large;
+  font-variant: small-caps;
+}
+
+.Resume-page {
+  background-color: #333;
+  border: 5px solid #444;
+  color: #62db66;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 20px;
+}
+
+.Resume-text {
+  margin: 5px;
+  text-align: center;
 }
 
 .sign{
