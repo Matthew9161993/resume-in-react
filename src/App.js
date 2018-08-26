@@ -3,22 +3,24 @@ import logo from './logo.svg';
 import mugshot from './ImSoHandsome.jpg'
 import './App.css';
 
-const buttonStyles = { color: '#fff' };
-
-function Button(props) {
-  return <button style={Object.assign({}, buttonStyles, props.style)}>
-    {props.children}
-  </button>;
-}
-
-const headerStyles = { backgroundColor: '#222',
+const buttonStyles = { backgroundColor: '#222',
                        fontSize: '24px',
                        width: '33%',
                        border: '2px solid #222'};
 
-function HeaderButton(props) {
-  return <Button style={headerStyles}>{props.text}</Button>;
+
+class CustomButton extends Component {
+
+  render() {
+    return(
+      <button className="navbutton"
+              onClick={() => alert('I am ' + this.props.text)}>
+        {this.props.text}
+      </button>
+      );
+  }
 }
+
 
 function InitialHeader(props) {
   return (
@@ -83,12 +85,28 @@ class Banner extends Component {
 }
 
 class Buttonizer extends Component {
+    constructor(props) {
+    super(props)
+    this.state = {
+      text: ["About Me", "Projects", "Resume"],
+    };
+  }
+
+  renderButton(i) {
+    return (
+      <CustomButton
+        text={this.state.text[i]}
+        onClick={() => this.handleClick(i)}
+      />
+    );
+  }
+
   render() {
     return ( 
       <div className="All-the-buttons">
-        <HeaderButton text = "About Me"/>
-        <HeaderButton text = "Projects"/>
-        <HeaderButton text = "Resume"/>
+        {this.renderButton(0)}
+        {this.renderButton(1)}
+        {this.renderButton(2)}
       </div>
       );
   }
@@ -107,6 +125,28 @@ class PageOne extends Component {
         />
       </div>
     );
+  }
+}
+
+class Projects extends Component {
+
+  render() {
+    return(
+      <div className="Project-page">
+        These are my cool projects!
+      </div>
+      );
+  }
+}
+
+class Resume extends Component {
+
+  render() {
+    return(
+      <div className="Resume-page">
+        This is my awesome resume!
+      </div>
+      );
   }
 }
 
