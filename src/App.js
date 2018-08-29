@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import mugshot from './ImSoHandsome.jpg'
+import resume from './8-4-18 Resume.pdf'
+import saraproject from './SaraWalkSample.png'
 import './App.css';
+
+
+const PROJECTS = [
+  {name: 'Sara Takes a Walk', language: 'Java', 
+  description: 'This was a quick Java project to learn Swing and other UI.' }
+];
 
 function InitialHeader(props) {
   return (
@@ -50,6 +58,7 @@ class CustomButton extends Component {
               onClick={() => this.props.onClick()}
               onMouseEnter={this.hoverOn}
               onMouseLeave={this.hoverOff}
+
       >
         {this.props.text}
       </button>
@@ -58,10 +67,6 @@ class CustomButton extends Component {
 }
 
 class Banner extends Component{
-
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     return (
@@ -109,12 +114,31 @@ class Name extends Component {
 }
 
 class PageOne extends Component {
+  constructor(){
+    super();
+    this.hoverOn = this.hoverOn.bind(this);
+    this.hoverOff = this.hoverOff.bind(this);
+    this.state = {
+      hover: false,
+    };
+  }
+
+  hoverOn(){
+    this.setState({hover: true});
+  }
+
+  hoverOff(){
+    this.setState({hover: false});
+  }
 
   render() {
     return (
       <div className="First-page">
-        <img src={mugshot} className = "My-Picture" alt="You Can't See Me :/[" 
-              width="540px" height="auto" padding="50px" />
+        <img src={mugshot} 
+            className =  {this.state.hover ? "My-picture-hover" : "My-picture" }
+            onMouseEnter={this.hoverOn}
+            onMouseLeave={this.hoverOff}
+            alt="You Can't See Me :/" />
         <ContactInfo info = "Hello everyone! I'm Matt, and I'm a developer in the
         Madison area. I'm currently looking for development work across the U.S. My
         other passions include music, teaching, physical fitness, wellness, and board games!
@@ -130,60 +154,83 @@ class PageOne extends Component {
 
 class Projects extends Component {
 
+  renderProject(i) {
+    return <ProjectEntry project = {i} />;
+  }
+
   render() {
     return(
       <div className="Project-page">
         These are my cool projects!
+        <ProjectEntry projects = {PROJECTS} />
       </div>
       );
   }
 }
 
-class Resume extends Component {
+class ProjectEntry extends Component {
 
   render() {
     return(
-      <div className = "Resume-page">
-        <section className="Resume-header">
-          &#123; OBJECTIVE &#125;
-        </section>
-        <br/>
-        <section className="Resume-text">
-        Seeking responsible position to apply computer skills 
-        to solve problems with user friendly software and technology 
-        to improve productivity and increase communication.
-        </section>
-        <br/>
-        <section className="Resume-header">
-        &#123; EDUCATION &#125;
-        </section>
-        <br/>
-        <section className="Resume-text">
+      <div className = "Project-box">
+        {this.props.projects.name}
+      </div>
+    );
+  }
+}
+
+class Resume extends Component {
+
+  constructor(props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+  }
+
+  render() {
+    return(
+      <div className = "Resume-container">
+        <div className = "Resume-page">
+          <section className="Resume-header">
+            &#123; OBJECTIVE &#125;
+          </section>
+          <section className="Resume-text">
+          Seeking responsible position to apply computer skills 
+          to solve problems with user friendly software and technology 
+          to improve productivity and increase communication.
+          </section>
+          <section className="Resume-header">
+          &#123; EDUCATION &#125;
+          </section>
           <section className="Resume-info-line">
             University of Wisconsin-Madison 2018
           </section>
-          <br/>
-          Computer Science B.S.
-        </section>
-        <br/>
-        <section className="Resume-header">
-        &#123; WORK EXPERIENCE &#125;
-        </section>
-        <br/>
-        <section className="Resume-text">
-          <section className="Resume-info-line">
-          MORGRIDGE INSTITUTE FOR RESEARCH, MADISON WI - SINCE 2016
+          <section className="Resume-text">
+            Computer Science B.S.
           </section>
-          <br/>
-          The Morgridge Institute for Reasearch, partnering with UW-Madison, 
-          seeks to improve human health 
-          through innovative technologies and interdisciplinary biomedical 
-          discoveries. As an <u>Audio/Video Technician</u>, operated and 
-          maintained Unix/Windows computers, created new network 
-          software for remote access to digital signage, trained new 
-          technicians and published training manuals, and recognized 
-          for efficient communication with team members.
-        </section>
+          <section className="Resume-header">
+          &#123; WORK EXPERIENCE &#125;
+          </section>
+          <section className="Resume-info-line">
+            MORGRIDGE INSTITUTE FOR RESEARCH, MADISON WI - SINCE 2016
+          </section>
+          <section className="Resume-text">
+            The Morgridge Institute for Reasearch, partnering with UW-Madison, 
+            seeks to improve human health 
+            through innovative technologies and interdisciplinary biomedical 
+            discoveries. As an <u>Audio/Video Technician</u>, operated and 
+            maintained Unix/Windows computers, created new network 
+            software for remote access to digital signage, trained new 
+            technicians and published training manuals, and recognized 
+            for efficient communication with team members.
+          </section>
+        </div>
+        <a className = "Download-button" href={resume} download="MatthewOConnor">
+          <CustomButton text= "Download"
+                        onClick={() => this.handleClick()}/>
+        </a>
       </div>
       );
   }
@@ -196,6 +243,7 @@ class App extends Component {
     this.state = {
       currentPage: "About Me",
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(i) {

@@ -28,13 +28,23 @@
 }
 
 .Contact-info {
-  padding: 75px;
+  margin-left: 20px;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.Download-button {
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  width: 33%;
 }
 
 .First-page {
   background-color: #222;
   color: #2ed141;
-  display: block;
+  display: flex;
+  flex-direction: row;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -63,17 +73,39 @@
     color: #2ed141;
 }
 
+.My-picture {
+  border: 5px solid #444;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  max-height: 450px;
+  padding: 1px;
+  transition: 1s;
+}
+
+.My-picture-hover {
+  border: 5px solid #2ed141;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  max-height: 450px;
+  padding: 1px;
+  transition: 1s;
+}
+
 .navbutton {
     background-color: #2ed141;
-    border: none;
+    border: 2px solid grey;
     color: #222;
     display: inline-block;
     font-size: 24px;
     font-variant: small-caps;
     font-weight: bold;
-    margin-top: 15px;
-    margin-bottom: 30px;
-    padding: 15px 32px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
     text-align: center;
     text-decoration: none;
     transition: 1.0s;
@@ -88,26 +120,9 @@
     font-size: 24px;
     font-variant: small-caps;
     font-weight: bold;
-    margin-top: 15px;
-    margin-bottom: 30px;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    transition: 1.0s;
-    width: 33.3%;
-}
-
-.navbutton-selected {
-    background-color: #2ed141;
-    border: none;
-    color: #222;
-    display: inline-block;
-    font-size: 24px;
-    font-variant: small-caps;
-    font-weight: bold;
-    margin-top: 15px;
-    margin-bottom: 30px;
-    padding: 15px 32px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
     text-align: center;
     text-decoration: none;
     transition: 1.0s;
@@ -118,11 +133,19 @@
   text-align: right;
 }
 
+.Resume-container {
+  text-align: center;
+  display: block;
+  overflow: auto;
+  padding: 20px;
+}
+
 .Resume-header {
   color: #aef9f2;
   text-align: center;
   font-weight: bold;
   font-size: larger;
+  margin: 10px;
 }
 
 .Resume-info-line {
@@ -131,20 +154,23 @@
   text-align: center;
   font-size: large;
   font-variant: small-caps;
+  padding: 5px;
 }
 
 .Resume-page {
   background-color: #333;
   border: 5px solid #444;
   color: #62db66;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 15%;
+  margin-right: 15%;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .Resume-text {
-  margin: 5px;
   text-align: center;
+  margin: 10px;
+  padding: 10px;
 }
 
 .sign{
@@ -156,6 +182,7 @@
     margin: 25px;
     padding: 5px;
 }
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
