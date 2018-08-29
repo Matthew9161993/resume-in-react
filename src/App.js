@@ -214,7 +214,7 @@ class Resume extends Component {
           &#123; WORK EXPERIENCE &#125;
           </section>
           <section className="Resume-info-line">
-            MORGRIDGE INSTITUTE FOR RESEARCH, MADISON WI - SINCE 2016
+            Morgridge Institute For Research, Madison WI 2016 - Present
           </section>
           <section className="Resume-text">
             The Morgridge Institute for Reasearch, partnering with UW-Madison, 
@@ -244,27 +244,32 @@ class App extends Component {
       currentPage: "About Me",
     };
     this.handleClick = this.handleClick.bind(this);
+    this.renderDisplay = this.renderDisplay.bind(this);
   }
 
   handleClick(i) {
     this.setState({currentPage: i});
   }
 
+  renderDisplay() {
+    if (this.state.currentPage === "About Me") {
+      return (<PageOne/>);
+    } else if (this.state.currentPage === "Projects") {
+      return (<Projects/>);
+    } else if (this.state.currentPage === "Resume") {
+      return (<Resume/>);
+    } else {
+      return null;
+    }
+  }
+
   render() {
 
     return (
-      <div>
+      <div className="Display-area">
         <Name />
         <Buttonizer onClick={(i) => this.handleClick(i)}/>
-        {this.state.currentPage === "About Me" &&
-          <PageOne />
-        }
-        {this.state.currentPage === "Projects" &&
-          <Projects />
-        }
-        {this.state.currentPage === "Resume" &&
-          <Resume />
-        }
+          {this.renderDisplay()}
         <Banner />
       </div>
     );

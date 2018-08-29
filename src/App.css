@@ -33,11 +33,33 @@
   margin-top: auto;
 }
 
+.Display-area {
+  transition: 1s;
+}
+
 .Download-button {
   padding: 10px;
   position: relative;
   text-align: center;
   width: 33%;
+}
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }
 
 .First-page {
@@ -138,6 +160,7 @@
   display: block;
   overflow: auto;
   padding: 20px;
+  transition: 1s ease-in;
 }
 
 .Resume-header {
